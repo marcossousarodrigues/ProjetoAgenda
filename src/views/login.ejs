@@ -1,0 +1,69 @@
+
+    <%- include('includes/head')%>
+    <%- include('includes/nav')%>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8 my-3">
+          <h1 class="text-center">Criar conta ou entrar</h1>
+          <p class="text-center lead">Faca login ou crie sua conta abaixo</p>
+
+          <%- include('includes/messages')%>
+
+          <div class="row">
+
+            <div class="col-lg my-5">
+              <h4>Faca seu cadastro</h4>
+              <p>Se voce ainda nao tem conta, preencha o formulario abaixo:</p>
+              <form class="form-cadastro" action="/login/register" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+
+                <div class="form-group form-group-email">
+                  <label>Seu e-mail</label>
+                  <input type="email" class="form-control" name="email">
+                  <p class="text-center alert-danger message-email">email invalido</p>
+                </div>
+
+                <div class="form-group senha">
+                  <label>Sua senha</label>
+                  <input type="password" class="form-control" name="password">
+                  <p class="text-center alert-danger message-senha">Senha precisa ter entre 3 e 50 caracteres</p>
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Criar minha conta</button>
+              </form>
+
+            </div>
+            <div class="col-lg my-5">
+              <h4>Entrar no sistema</h4>
+              <p>Se voce ja tem conta, faca login abaixo:</p>
+              <form class="form-login" action="/login/login" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+                <div class="form-group">
+                  <label>Seu e-mail</label>
+                  <input type="email" class="form-control" name="email">
+                  <p class="text-center alert-danger message-email">email invalido</p>
+                </div>
+
+                <div class="form-group">
+                  <label>Sua senha</label>
+                  <input type="password" class="form-control" name="password">
+                  <p class="text-center alert-danger message-senha">Senha precisa ter entre 3 e 50 caracteres</p>
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Entrar</button>
+              </form>
+            </div>
+
+          </div>
+        
+        </div>
+
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+    <%- include('includes/footer')%>
+   
